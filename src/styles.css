@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 140px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}

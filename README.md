@@ -1,27 +1,84 @@
-# NgxLetterImage
+# Angular letters-avatar Component Ngx-letters-avatar (Angular 2+)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+Component will genrate an avatar of your name's initial letters
+[![](https://i.ibb.co/8XzckDY/letters-avatar.png)](https://i.ibb.co/8XzckDY/letters-avatar.png)
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Set `width` and `height` properties.
+- Set the 'avatarText' property wich is used to display the initials.
+- You can set the `fontFamily` for the characters.
+- You can set `circular` which is a boolean value to true or false to create a circlular shaped image.
+- You can set `borderRadius` property to make rounded bordered shape.
+- You can set `id` property for every image.
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Installing
 
-## Build
+```
+npm i ngx-letters-avatar
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Configuration
 
-## Running unit tests
+Ensure you import the module and the dependencies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { LettersAvatarModule } from "ngx-letters-avatar";
 
-## Running end-to-end tests
+@NgModule({
+  declarations: [],
+  imports: [BrowserModule, LettersAvatarModule],
+  exports: [],
+  providers: []
+})
+export class AppModule {}
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Basic Usage
 
-## Further help
+```html
+<div *ngFor="let user of users">
+  <p>{{ user.name }}</p>
+  <ngx-letters-avatar 
+    [avatarText]="user.name" 
+    [width]="40" 
+    [height]="40" 
+    [circular]="true"
+    fontFamily="Open Sans"></ngx-letters-avatar>
+</div>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```typescript
+@Component({
+  selector: 'app',
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+});
+
+export class App {
+  users = [
+    { name: "Girgis A.Jacoub", id: 1 },
+    { name: "Your name", id: 2 },
+    { name: "another name", id: 3 },
+  ];
+}
+```
+
+### Api for letters-avatar Component
+
+#### These are the list of Inputs[] that are supported by the component. Configure the settings to meet your requirement.
+
+| Input         |Type    | Description            | Default Value |
+|:--- |:--- |:--- |:--- |
+| width | number | Will be used as the width of the image. if provided, you will need to provide the height property too. | 60 |
+| height | number | Will be used as the height of the image. if provided, you will need to provide the width property too. | 60 |
+| avatarText | string | The name which the initial letters are taken from. | none |
+| className | string | To provide a class or classes for the image tag. | none |
+| fontFamily | string | To provide a font fanily for the characters. | Arial |
+| circular | boolean | to make a circular shaped img. | false |
+| borderRadius | number | to make a rounded bordered shape image. | none |
+| id | string | to provide id attribute for the image tag. | none |
