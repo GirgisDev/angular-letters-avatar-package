@@ -1,6 +1,6 @@
 {
   "name": "ngx-letters-avatar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -23,8 +23,7 @@
     "initial letters image",
     "initial letters avatar"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "@angular/animations": "~9.0.5",
     "@angular/common": "~9.0.5",
