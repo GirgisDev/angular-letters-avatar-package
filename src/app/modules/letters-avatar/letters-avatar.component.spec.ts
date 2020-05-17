@@ -27,14 +27,14 @@ describe('LetterImageComponent', () => {
   });
   it('should add avatar name', () => {
     let avatarText = "Girgis Abdelmalak"
-    component.avatarText = avatarText;
-    expect(component.avatarText).toEqual(avatarText);
+    component.avatarName = avatarText;
+    expect(component.avatarName).toEqual(avatarText);
   });
   it('should render img with initials', () => {
     const fixture = TestBed.createComponent(LettersAvatarComponent);
     fixture.detectChanges();
     let avatarText = "Girgis Abdelmalak"
-    component.avatarText = avatarText;
+    component.avatarName = avatarText;
 
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('#Avatar')).toBeTruthy();

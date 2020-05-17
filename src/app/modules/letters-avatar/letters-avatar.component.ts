@@ -6,9 +6,10 @@ import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
   styleUrls: ['./letters-avatar.component.css']
 })
 export class LettersAvatarComponent implements OnInit, AfterViewInit {
-  @Input('width') width = 60;
-  @Input('height') height = 60;
-  @Input('avatarText') avatarText = "";
+  @Input('width') width: number;
+  @Input('height') height: number;
+  @Input('avatarName') avatarName = "";
+  @Input('src') src: string;
   @Input('className') className = "";
   @Input('fontFamily') fontFamily = "arial";
   @Input('circular') circular = false;
@@ -18,6 +19,7 @@ export class LettersAvatarComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.width && !this.height) this.width = 60;
   }
 
   ngAfterViewInit() {
@@ -26,16 +28,17 @@ export class LettersAvatarComponent implements OnInit, AfterViewInit {
 
   drawAvatar() {
     let image = document.getElementById("avatar-img"),
-      name = this.avatarText;
+      name = this.avatarName;
 
-    image.id = this.id ? this.id : this.avatarText.replace(/\s/g, "") + "Avatar";
+    image.id = this.id ? this.id : this.avatarName.replace(/\s/g, "") + "Avatar";
     image.setAttribute('alt', `${name} avatar`);
-    image.setAttribute('width', `${this.width}px`);
-    image.setAttribute('height', `${this.height}px`);
-    image.setAttribute('src', this.createCanvasURI(name));
-    image.className = this.className;
+    image.setAttribute('width', `${this.width ? this.width : this.height}px`);
+    image.setAttribute('height', `${this.height ? this.height : this.width}px`);
+    image.setAttribute('class', this.className);
     if (this.circular) image.style.borderRadius = "50%";
     if (this.borderRadius) image.style.borderRadius = `${this.borderRadius}px`;
+    if (this.src) image.setAttribute('src', this.src);
+    else image.setAttribute('src', this.createCanvasURI(name));
   }
 
   createCanvasURI(name = "") {
