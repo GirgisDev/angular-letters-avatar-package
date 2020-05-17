@@ -45,7 +45,7 @@ export class AppModule {}
 <div *ngFor="let user of users">
   <p>{{ user.name }}</p>
   <ngx-letters-avatar 
-    [avatarText]="user.name" 
+    [avatarName]="user.name" 
     [width]="40" 
     [height]="40" 
     [circular]="true"
