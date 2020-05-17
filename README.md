@@ -47,7 +47,6 @@ export class AppModule {}
   <ngx-letters-avatar 
     [avatarName]="user.name" 
     [width]="40" 
-    [height]="40" 
     [circular]="true"
     fontFamily="Open Sans"></ngx-letters-avatar>
 </div>
