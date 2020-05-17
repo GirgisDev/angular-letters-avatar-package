@@ -6,8 +6,8 @@ Component will genrate an avatar of your name's initial letters
 ## Features
 
 - Set `width` and `height` properties or only one of them.
-- Set the 'avatarName' property wich is used to display the initials.
-- Set the 'src' property to show ordinary image in case you don't want to show letters avatar.
+- Set the `avatarName` property wich is used to display the initials.
+- Set the `src` property to show ordinary image in case you don't want to show letters avatar.
 - You can set the `fontFamily` for the characters.
 - You can set `circular` which is a boolean value to true or false to create a circlular shaped image.
 - You can set `borderRadius` property to make rounded border for the shape.
