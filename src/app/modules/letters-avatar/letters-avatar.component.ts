@@ -10,6 +10,8 @@ export class LettersAvatarComponent implements OnInit, AfterViewInit {
   @Input('height') height: number;
   @Input('avatarName') avatarName = "";
   @Input('src') src: string;
+  @Input('color') src: string;
+  @Input('textcolor') src: string;
   @Input('className') className = "";
   @Input('fontFamily') fontFamily = "arial";
   @Input('circular') circular = false;
@@ -64,11 +66,11 @@ export class LettersAvatarComponent implements OnInit, AfterViewInit {
     canvas.height = size;
     context = canvas.getContext("2d");
 
-    context.fillStyle = colours[colourIndex - 1];
+    context.fillStyle = (this.color) ? this.color : colours[colourIndex - 1];
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.font = `${Math.round(canvas.width / 2.7)}px ${this.fontFamily}`;
     context.textAlign = "center";
-    context.fillStyle = "#FFF";
+    context.fillStyle = (this.textcolor) ? this.textcolor : "#FFF";
     context.textBaseline = "middle";
 
     initials = initials.split("").join(String.fromCharCode(8202))
